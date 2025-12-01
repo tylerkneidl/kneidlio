@@ -1,13 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tyler Kneidl – Product Engineering & Leadership</title>
+  <meta name="description" content="Building products at the intersection of engineering and user experience. Co-founder of Heat Check, Senior Engineer at GEICO." />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tyler Kneidl – Product Engineering & Leadership" />
+  <meta property="og:description" content="Building products at the intersection of engineering and user experience." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kneidl.io" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23D63384'/><text x='50' y='68' font-family='system-ui' font-size='50' font-weight='700' fill='white' text-anchor='middle'>TK</text></svg>" />
+
+  <style>
+    :root {
+      --pink: #D63384;
+      --pink-dark: #AB296A;
+      --white: #FFFFFF;
+      --gray-100: #F8F9FA;
+      --gray-200: #E9ECEF;
+      --gray-400: #ADB5BD;
+      --gray-600: #6C757D;
+      --gray-800: #343A40;
+      --gray-900: #212529;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-800);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--pink);
+      color: var(--white);
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 96px 0 64px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--gray-600);
+      max-width: 560px;
+    }
+
+    /* Sections */
+    section {
+      padding-bottom: 80px;
+    }
+
+    h2 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--pink);
+      margin-bottom: 24px;
+    }
+
+    /* Projects */
+    .project {
+      margin-bottom: 40px;
+    }
+
+    .project:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .project h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+
+    .project .role {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+    }
+
+    .project p {
+      color: var(--gray-800);
+      margin-bottom: 12px;
+    }
+
+    /* Screenshot */
+    .screenshot {
+      margin-top: 16px;
+      max-width: 260px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .screenshot img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Links */
+    a {
+      color: var(--pink);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    a:hover {
+      color: var(--pink-dark);
+    }
+
+    /* Contact */
+    .contact-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .contact-links a {
+      font-weight: 500;
+    }
+
+    .looking-for {
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-200);
+      color: var(--gray-600);
+      font-style: italic;
+    }
+
+    /* Footer */
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--gray-100);
+      margin-top: auto;
+    }
+
+    footer p {
+      font-size: 0.875rem;
+      color: var(--gray-400);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hero {
+        padding: 64px 0 48px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1.125rem;
+      }
+
+      section {
+        padding-bottom: 56px;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Tyler Kneidl</h1>
+      <p>I build products. Right now that means a real-time sports analytics app and internal tools that people actually want to use. I care about the engineering, but I care more about whether the thing works for the people using it.</p>
+    </section>
+
+    <!-- Currently -->
+    <section>
+      <h2>Currently</h2>
+      
+      <article class="project">
+        <div class="project-header">
+          <h3>Heat Check</h3>
+          <span class="role">Co-founder & CTO</span>
+        </div>
+        <p>Real-time NBA analytics app that tracks how "hot" players are during live games. I built the whole stack: SwiftUI frontend, Node backend, a scoring algorithm I designed with my co-founder who actually knows basketball. We're in TestFlight now, collecting feedback, and have a waitlist for public beta.</p>
+        <div class="screenshot">
+          <img src="heatcheck.png" alt="Heat Check app showing live player stats and heat index" />
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-header">
+          <h3>GEICO</h3>
+          <span class="role">Senior Software Engineer</span>
+        </div>
+        <p>I own a UX improvement project for an internal vulnerability management platform. The tool works fine technically, but nobody wants to use it. I'm running user research with a product designer to figure out why and fix it.</p>
+      </article>
+    </section>
+
+    <!-- Past Work -->
+    <section>
+      <h2>Past Work</h2>
+      
+      <article class="project">
+        <div class="project-header">
+          <h3>Abstract</h3>
+          <span class="role">2022–2024</span>
+        </div>
+        <p>Led architecture on bill tracking and report generation, which was the product. Sat in customer meetings, heard what was broken, built the fixes. Also did a React 18 migration that cut page load times by 40%, but the customer stuff was more interesting.</p>
+      </article>
+
+      <article class="project">
+        <div class="project-header">
+          <h3>Observability at GEICO</h3>
+        </div>
+        <p>When I joined my current team, there was no incident response process. No alerting, no dashboards, nothing. I built the whole observability stack from scratch using OpenTelemetry, Prometheus, and Loki, then worked with the on-call team to get it wired up. Now when something breaks, we know.</p>
+      </article>
+    </section>
+
+    <!-- Background -->
+    <section>
+      <h2>Background</h2>
+      <p>Before engineering, I taught AP Physics for 12 years in New Jersey, Kuwait, and China. At one school I inherited a physics program that was basically dead. I rewrote the curriculum, found $25K in funding, tripled enrollment, and got the department's first real gender balance. Then I hired someone to help cover all the new sections.</p>
+      <p style="margin-top: 16px;">I didn't know it at the time, but that was product work. Figure out who you're building for, find out what's not working, fix it, measure whether it helped. The context changes but the job doesn't.</p>
+    </section>
+
+    <!-- Contact -->
+    <section>
+      <h2>Get in Touch</h2>
+      <div class="contact-links">
+        <a href="mailto:tskneidl@gmail.com">tskneidl@gmail.com</a>
+        <a href="https://linkedin.com/in/tylerkneidl" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/tylerkneidl" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p class="looking-for">I'm interested in product engineering and engineering leadership roles. If that's what you're hiring for, let's talk.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Tyler Kneidl</p>
+    </div>
+  </footer>
+</body>
 </html>
