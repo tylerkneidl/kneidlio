@@ -58,7 +58,7 @@
     }
 
     .container {
-      max-width: 680px;
+      max-width: 820px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -129,10 +129,21 @@
       margin-bottom: 12px;
     }
 
+    /* Featured project with screenshot */
+    .project-featured {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    .project-featured .project-content {
+      flex: 1;
+    }
+
     /* Screenshot */
     .screenshot {
-      margin-top: 16px;
-      max-width: 260px;
+      flex-shrink: 0;
+      width: 200px;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -203,6 +214,14 @@
         padding-bottom: 56px;
       }
 
+      .project-featured {
+        flex-direction: column;
+      }
+
+      .screenshot {
+        width: 180px;
+      }
+
       .contact-links {
         flex-direction: column;
         gap: 12px;
@@ -222,12 +241,14 @@
     <section>
       <h2>Currently</h2>
       
-      <article class="project">
-        <div class="project-header">
-          <h3>Heat Check</h3>
-          <span class="role">Co-founder & CTO</span>
+      <article class="project project-featured">
+        <div class="project-content">
+          <div class="project-header">
+            <h3>Heat Check</h3>
+            <span class="role">Co-founder & CTO</span>
+          </div>
+          <p>Real-time NBA analytics app that tracks how "hot" players are during live games. I built the whole stack: SwiftUI frontend, Node backend, a scoring algorithm I designed with my co-founder who actually knows basketball. We're in TestFlight now, collecting feedback, and have a waitlist for public beta.</p>
         </div>
-        <p>Real-time NBA analytics app that tracks how "hot" players are during live games. I built the whole stack: SwiftUI frontend, Node backend, a scoring algorithm I designed with my co-founder who actually knows basketball. We're in TestFlight now, collecting feedback, and have a waitlist for public beta.</p>
         <div class="screenshot">
           <img src="heatcheck.png" alt="Heat Check app showing live player stats and heat index" />
         </div>
